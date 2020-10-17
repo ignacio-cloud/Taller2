@@ -1,7 +1,7 @@
 import pytz
 import datetime
 
-class Funcion(self):
+class Funcion():
     def __init__(self, nombre, horario):
         self.nombre = nombre
         self.horario = horario
