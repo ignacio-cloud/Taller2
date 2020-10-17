@@ -10,8 +10,8 @@ class Funcion():
     def isDisponible(self):
         timezone = pytz.timezone('America/Guatemala')
         fecha_completa = datetime.datetime.now(tz = timezone)
-        hora = fecha_completa.strftime('%H')
-        minutos = fecha_completa.strftime('%M')
+        hora = fecha_completa.strftime("%H")
+        minutos = fecha_completa.strftime("%M")
         hora_actual = int(hora)
         min_actual = int(minutos)
         #hacemos un split
