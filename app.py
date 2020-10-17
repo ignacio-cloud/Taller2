@@ -19,7 +19,7 @@ def inicio():
     return 'Bienvenido'
 
 #creamos otra ruta, con funcion.
-@app.route('agregarFuncion', methods = ['POST'])
+@app.route('/agregarFuncion', methods = ['POST'])
 def agregarFuncion():
     #almacena la peticion.
     cuerpo = request.get_json()
@@ -36,3 +36,20 @@ def agregarFuncion():
     return jsonify({
         'mensaje': 'agregado correctamente.'
     })
+
+#creamos otra ruta, con funcion.
+#metodo GET obtenemos informacion de la lista.
+@app.route('/obtenerFunciones',methods = ['GET'])
+def obtenerFunciones():
+    #creo una lista json.
+    json_funciones = []
+    global funciones
+    #recorro toda la lista agregando los datos convertidos a json.
+    for funcion in funciones:
+        json_funciones.append({"nombre": funcion.nombre, "horario": funcion.horario, "disponible": funcion.isDisponible()})
+    #ya puedo retornar la lista en formato json.
+    return jsonify({json_funciones})
+
+#colocamos el metodo main, donde va a entrar la applicacion.
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0', port=4000)
