@@ -45,8 +45,7 @@ def obtenerFunciones():
     for funcion in funciones:
         json_funciones.append({"nombre":funcion.nombre, "horario":funcion.horario, "disponible":funcion.isDisponible()})
     #ya puedo retornar la lista en formato json.
-    return jsonify({json_funciones})
-
+    return jsonify(json_funciones)
 
 #colocamos el metodo main, donde va a entrar la applicacion.
 if __name__ == '__main__':
